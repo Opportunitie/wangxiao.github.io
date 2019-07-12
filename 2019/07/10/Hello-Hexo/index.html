@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2019-07-10</span>
-            <span class="time">23:58:41</span>
+            <span class="time">09:23:29</span>
           </span>
           
           <!--  Categories  -->
@@ -143,14 +143,45 @@
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let &#123; bar, foo &#125; = &#123; foo: &quot;a&quot;, bar: &quot;b&quot; &#125;;</span><br><span class="line">foo // &quot;a&quot;</span><br><span class="line">bar // &quot;b&quot;</span><br><span class="line"></span><br><span class="line">let &#123; bas &#125; = &#123; foo: &quot;a&quot;, bar: &quot;b&quot; &#125;;</span><br><span class="line">baz // undefined</span><br><span class="line"></span><br><span class="line">let &#123; foo: baz &#125; = &#123; foo: &apos;a&apos;, bar: &apos;b&apos; &#125;;</span><br><span class="line">baz // &quot;a&quot;</span><br><span class="line"></span><br><span class="line">let obj = &#123; first: &apos;hello&apos;, last: &apos;world&apos; &#125;;</span><br><span class="line">let &#123; first: f, last: l &#125; = obj;</span><br><span class="line">f // &apos;hello&apos;</span><br><span class="line">l // &apos;world&apos;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>提取json数据(实用)</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">        let jsonData = &#123;</span><br><span class="line">        id: 42,</span><br><span class="line">        status: &quot;OK&quot;,</span><br><span class="line">        data: [867, 5309]</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">        let &#123; id, status, data: number &#125; = jsonData;</span><br><span class="line">        </span><br><span class="line">        console.log(id, status, number);</span><br><span class="line">        // 42, &quot;OK&quot;, [867, 5309]</span><br><span class="line"></span><br><span class="line">        ```  </span><br><span class="line">- this指向</span><br><span class="line">    - 普通函数this</span><br></pre></td></tr></table></figure>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> jsonData = &#123;</span><br><span class="line">id: <span class="number">42</span>,</span><br><span class="line">status: <span class="string">"OK"</span>,</span><br><span class="line">data: [<span class="number">867</span>, <span class="number">5309</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123; id, status, <span class="attr">data</span>: number &#125; = jsonData;</span><br><span class="line"><span class="built_in">console</span>.log(id, status, number);<span class="comment">// 42, "OK", [867, 5309]</span></span><br></pre></td></tr></table></figure>
 
-<p>  普通函数this一般为window。<br>  const _global = typeof window === “undefined” ? global : window;<br>  function test() {</p>
-<pre><code>console.log(this === _global);    // true</code></pre><p>  }<br>  test();    // 直接调用</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">- 箭头函数this</span><br></pre></td></tr></table></figure>
 
-<p>说明：箭头函数没有自己的 this 绑定。箭头函数中使用的 this，<br>其实是直接包含它的那个函数或函数表达式中的 this，而且箭头函<br>数在定义的时候已经定了，之后无法改变this指向<br>const obj = {<br>test() {<br>  const arrow = () =&gt; {<br>  // 这里的 this 是 test() 中的 this，<br>  // 由 test() 的调用方式决定<br>  console.log(this === obj);<br>  };<br>  arrow();<br>},<br>getArrow() {<br>  return () =&gt; {<br>  // 这里的 this 是 getArrow() 中的 this，<br>  // 由 getArrow() 的调用方式决定<br>  console.log(this === obj);<br>  };<br>}<br>};</p>
-<p>obj.test(); // true<br>const arrow = obj.getArrow();<br>arrow(); // true<br>``` </p>
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>this指向</p>
+<ul>
+<li><p>普通函数this</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _global = <span class="keyword">typeof</span> <span class="built_in">window</span> === <span class="string">"undefined"</span> ? global : <span class="built_in">window</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span> === _global);    <span class="comment">// true</span></span><br><span class="line">&#125;</span><br><span class="line">test();    <span class="comment">// 直接调用</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>箭头函数this  </p>
+<pre><code class="js">说明：箭头函数没有自己的 <span class="keyword">this</span> 绑定。箭头函数中使用的 <span class="keyword">this</span>，
+其实是直接包含它的那个函数或函数表达式中的 <span class="keyword">this</span>，而且箭头函
+数在定义的时候已经定了，之后无法改变<span class="keyword">this</span>指向
+<span class="keyword">const</span> obj = {
+test() {
+    <span class="keyword">const</span> arrow = <span class="function"><span class="params">()</span> =&gt;</span> {
+    <span class="comment">// 这里的 this 是 test() 中的 this，</span>
+    <span class="comment">// 由 test() 的调用方式决定</span>
+    <span class="built_in">console</span>.log(<span class="keyword">this</span> === obj);
+    };
+    arrow();
+},
+getArrow() {
+    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> {
+    <span class="comment">// 这里的 this 是 getArrow() 中的 this，</span>
+    <span class="comment">// 由 getArrow() 的调用方式决定</span>
+    <span class="built_in">console</span>.log(<span class="keyword">this</span> === obj);
+    };
+}
+};
+
+obj.test(); <span class="comment">// true</span>
+<span class="keyword">const</span> arrow = obj.getArrow();
+arrow(); <span class="comment">// true</span></code></pre>
 </li>
 </ul>
 </li>
