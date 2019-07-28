@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="Wang xiao">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="ES6学习之旅--generator、co模块">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Hello hexo">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Hello hexo</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/wangxiao.github.io/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/wangxiao.github.io/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/wangxiao.github.io//img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">ES6学习之旅--generator、co模块</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/wangxiao.github.io/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wangxiao.github.io/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Wang xiao</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-07-15</span>
+            <span class="time">23:03:57</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/wangxiao.github.io/categories/JavaScript/">JavaScript</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/wangxiao.github.io/tags/ES6学习笔记/">#ES6学习笔记</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3 id="ES6学习"><a href="#ES6学习" class="headerlink" title="ES6学习"></a>ES6学习</h3><ul>
+<li><p>generator</p>
+<ul>
+<li><p>特征：</p>
+<ol>
+<li><p>function命令与函数名之间有一个星号（ * ）。</p>
+</li>
+<li><p>函数体内部使用yield语句定义不同的内部状态。</p>
+</li>
+<li><p>通过next方法使得generator方法获得执行权，运行yield后面的<br>函数或者表达式.</p>
+</li>
+</ol>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> * 函数名称 (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> .... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代码演示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> * <span class="title">helloWordGenerator</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">'hello'</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">'world'</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'ending'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> hw = helloWorldGenerator();</span><br><span class="line">hw.next()  <span class="comment">// &#123;value: 'hello' done: false&#125;</span></span><br><span class="line">hw.next()  <span class="comment">// &#123;value: 'world' done: false&#125;</span></span><br><span class="line">hw.next()  <span class="comment">// &#123;value: 'hello' done: true&#125;</span></span><br><span class="line">hw.next()  <span class="comment">// &#123;value: undefined done: true&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有意义的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> * <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">4</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">6</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">7</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// for...of</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> v <span class="keyword">of</span> foo())&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 2 3 4 5</span></span><br><span class="line"><span class="comment">// 扩展运算符</span></span><br><span class="line">[...foo()]</span><br><span class="line"><span class="comment">// 1 2 3 4 5</span></span><br><span class="line"><span class="built_in">Array</span>.from(foo()) <span class="comment">// 1 2 3 4 5</span></span><br><span class="line"><span class="comment">// 结构赋值</span></span><br><span class="line"><span class="keyword">let</span> [x , y] = foo();</span><br><span class="line"><span class="comment">// x = 1</span></span><br><span class="line"><span class="comment">// y = 2</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>co模块</p>
+<ul>
+<li>用处：<br>用于generator的自动执行</li>
+<li>代码演示：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">let</span> gen = <span class="function"><span class="keyword">function</span> * (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> url = <span class="string">'https://api.github.com/users/github'</span>;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="keyword">yield</span> fetch(url);</span><br><span class="line">    <span class="keyword">var</span> jsonData = <span class="keyword">yield</span> result.json();</span><br><span class="line">   <span class="built_in">console</span>.log(jsonData.bio); <span class="comment">// "How people build software."</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> co = <span class="built_in">require</span>(<span class="string">'co'</span>);</span><br><span class="line">  co(gen).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'generator執行完成'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string">- co原生實現：</span></span><br><span class="line"><span class="string"> `</span><span class="string">``</span>js</span><br><span class="line">  <span class="comment">// 实现功能： 自动执行 Generator 返回的 Promise 对象， 并且将 Promise 的结果在传入到 Generator 进行下一次运行。</span></span><br><span class="line">  <span class="keyword">let</span> fetch = <span class="built_in">require</span>(<span class="string">'./node-fetch'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">autoRunGen</span>(<span class="params">gen</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">typeof</span> gen === <span class="string">'function'</span>) gen = gen();</span><br><span class="line">          <span class="comment">// 如果 gen 不是一个迭代器</span></span><br><span class="line">          <span class="keyword">if</span> (!gen || <span class="keyword">typeof</span> gen.next !== <span class="string">'function'</span>) <span class="keyword">return</span> resolve(gen)</span><br><span class="line">          onFulfilled();</span><br><span class="line"></span><br><span class="line">          <span class="function"><span class="keyword">function</span> <span class="title">onFulfilled</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">              <span class="keyword">var</span> response;</span><br><span class="line">              <span class="keyword">try</span> &#123;</span><br><span class="line">                  response = gen.next(res);</span><br><span class="line">              &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                  <span class="keyword">return</span> reject(e);</span><br><span class="line">              &#125;</span><br><span class="line">              next(response);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="function"><span class="keyword">function</span> <span class="title">onRejected</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">              <span class="keyword">var</span> response;</span><br><span class="line">              <span class="keyword">try</span> &#123;</span><br><span class="line">                  response = gen.throw(err);</span><br><span class="line">              &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                  <span class="keyword">return</span> reject(e);</span><br><span class="line">              &#125;</span><br><span class="line">              next(response);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="function"><span class="keyword">function</span> <span class="title">next</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">              <span class="keyword">if</span> (response.done) <span class="keyword">return</span> resolve(response.value);</span><br><span class="line">              <span class="keyword">var</span> value = toPromise(response.value);</span><br><span class="line">              <span class="keyword">if</span> (value &amp;&amp; isPromise(value)) <span class="keyword">return</span> value.then(onFulfilled, onRejected);</span><br><span class="line">              <span class="keyword">return</span> onRejected(<span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'You may only yield a function, promise '</span> +</span><br><span class="line">                  <span class="string">'but the following object was passed: "'</span> + <span class="built_in">String</span>(response.value) + <span class="string">'"'</span>));</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">isPromise</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">typeof</span> obj.then === <span class="string">'function'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">toPromise</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (isPromise(obj)) <span class="keyword">return</span> obj;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> obj === <span class="string">'function'</span>) <span class="keyword">return</span> thunkToPromise(obj);</span><br><span class="line">      <span class="keyword">return</span> obj;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">thunkToPromise</span>(<span class="params">_fn</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">          _fn(<span class="function"><span class="keyword">function</span> (<span class="params">err, res</span>) </span>&#123;</span><br><span class="line">              <span class="keyword">if</span> (err) <span class="keyword">return</span> reject(err);</span><br><span class="line">              resolve(res);</span><br><span class="line">          &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span>* <span class="title">fetchStepGen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> url = <span class="string">'https://api.github.com/users/github'</span>;</span><br><span class="line">      <span class="keyword">var</span> result = <span class="keyword">yield</span> fetch(url);</span><br><span class="line">      <span class="keyword">var</span> jsonData = <span class="keyword">yield</span> result.json();</span><br><span class="line">      <span class="built_in">console</span>.log(jsonData.bio); <span class="comment">// "How people build software."</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  autoRunGen(fetchStepGen);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/wangxiao.github.io/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
