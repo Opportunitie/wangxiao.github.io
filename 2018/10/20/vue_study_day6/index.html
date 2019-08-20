@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="Wang xiao">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Vue学习之旅">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Hello hexo">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Hello hexo</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/wangxiao.github.io/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/wangxiao.github.io/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/wangxiao.github.io//img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Vue学习之旅</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/wangxiao.github.io/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wangxiao.github.io/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Wang xiao</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-10-20</span>
+            <span class="time">19:54:14</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/wangxiao.github.io/categories/Front-End/">Front End</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/wangxiao.github.io/tags/Vue学习笔记/">#Vue学习笔记</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3 id="vue-study-day6"><a href="#vue-study-day6" class="headerlink" title="vue_study_day6"></a>vue_study_day6</h3><ol>
+<li><p>Vuex在项目中使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在store.js中</span></span><br><span class="line"><span class="keyword">let</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    modules,</span><br><span class="line">    <span class="comment">// 在state中定义使用数据</span></span><br><span class="line">    state: &#123;</span><br><span class="line">        approvalData:[],</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//在getters中定义方法获取state中的数据</span></span><br><span class="line">    getters: &#123;</span><br><span class="line">        getApprovalData(state)&#123;</span><br><span class="line">            <span class="keyword">return</span> state.approvalData</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">	<span class="comment">// 在mutations中定义方法修改state里的数据</span></span><br><span class="line">    mutations: &#123;</span><br><span class="line">        setApprovalData(state,&#123;payload&#125;)&#123;</span><br><span class="line">            state.approvalData  = payload</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 在actions定义方法发起异步请求获取数据后，通过commit将获取的数据传递到mutations中,并且出发mutations中的方法，改变state中的数据。</span></span><br><span class="line">    actions: &#123;</span><br><span class="line">         actionApproval (context) &#123;</span><br><span class="line">              noAuthHttp.post(<span class="string">"/api/approvaldata"</span>).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">                context.commit(<span class="string">'setApprovalData'</span>, &#123;<span class="attr">payload</span>:res&#125;)</span><br><span class="line">              &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>在页面中获取数据分别通过mapState、mapGetters、mapMutations、mapActions这四个辅助函数获取数据，或者发起Aciton改变state的数据，具体看日志vue_study_day4。</p>
+</li>
+<li><p>watch属性</p>
+<ol>
+<li><p>ES6用的越来越多，箭头函数写顺了，函数大部分都写成了箭头函数。在Vue的watch中也顺手使用，然而出现了问题。组件中的数据并不能被同步修改,譬如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    <span class="comment">// 监测approvalData值的变化，将其赋值给this.data</span></span><br><span class="line">    approvalData: <span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.data = val</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>上面aprovalData改变后，this.data并没有改变。并且会报错，说无法找到data 没有定义。</p>
+</li>
+<li><p>原因以及解决办法</p>
+<p>vue 中关于 watch 的说明文档，末尾处有下列说明：</p>
+<p>注意，不应该使用箭头函数来定义 watcher 函数 (例如 searchQuery: newValue =&gt; this.updateAutocomplete(newValue))。理由是箭头函数绑定了父级作用域的上下文，所以 this 将不会按照期望指向 Vue 实例，this.updateAutocomplete 将是 undefined。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    <span class="comment">// 监测approvalData值的变化，将其赋值给this.data</span></span><br><span class="line">    approvalData: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.data = val</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这样问题就能完美</p>
+</li>
+</ol>
+</li>
+<li><p>文字前面加小标签</p>
+<ol>
+<li><p>加一个空的span,然后写样式，譬如写一个蓝色的小图标</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// span 空标签</span></span><br><span class="line">&lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon-style"</span>&gt;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 样式</span></span><br><span class="line">&#125;</span><br><span class="line">.icon-style &#123;</span><br><span class="line">  height: <span class="number">20</span>px;</span><br><span class="line">  width: <span class="number">5</span>px;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  margin: <span class="number">-1</span>px <span class="number">10</span>px <span class="number">2</span>px <span class="number">2</span>px;</span><br><span class="line">  background-color: rgb(<span class="number">31</span>, <span class="number">139</span>, <span class="number">238</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ol>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/wangxiao.github.io/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

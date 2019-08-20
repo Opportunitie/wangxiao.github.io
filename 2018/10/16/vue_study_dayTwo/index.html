@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="Wang xiao">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Vue学习之旅">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Hello hexo">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Hello hexo</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/wangxiao.github.io/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/wangxiao.github.io/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/wangxiao.github.io//img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Vue学习之旅</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/wangxiao.github.io/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wangxiao.github.io/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Wang xiao</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-10-16</span>
+            <span class="time">19:54:14</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/wangxiao.github.io/categories/Front-End/">Front End</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/wangxiao.github.io/tags/Vue学习笔记/">#Vue学习笔记</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3 id="vue-study-dayTwo"><a href="#vue-study-dayTwo" class="headerlink" title="vue_study_dayTwo"></a>vue_study_dayTwo</h3><ul>
+<li><p>深入了解vue组件</p>
+<ol>
+<li><p>使用组件的细节点</p>
+<ol>
+<li>重复行的功能我们一般做成组件的形式。</li>
+<li>定义data时，必须是一个函数，为了每一个组件都能拥有一个独立数据的存储</li>
+<li>对dom操作，使用ref</li>
+</ol>
+</li>
+<li><p>父子组件之间的数据传递</p>
+<ol>
+<li><p>当前组件为父组件，被引入组件为子组件</p>
+</li>
+<li><p>父组件的数据、方法传递给子组件</p>
+<ol>
+<li><p>:lists=list ,:datail=’detail’ 父组件传递形式</p>
+</li>
+<li><p>Props:[‘list’,’detail’] 子组件接受属性和方法形式</p>
+</li>
+<li><p>子组件向父组件传值， 通过$emit来发一个事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;child @listen-event=&quot;showMessage&quot;&gt;&lt;/child&gt;</span><br><span class="line">// 子组件传值给父组件</span><br><span class="line">methods:&#123;</span><br><span class="line">	this.$emit(&apos;listen-event&apos;,this.msg)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><p>组件参数校验和非props特性</p>
+<ol>
+<li><p>type</p>
+<ol>
+<li><p>接受单个类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">   	message:Number</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接受多种数据类型(Stirng、Number、Boolean、Function、Object、Array、Symbol)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">     	message:[<span class="built_in">Number</span>,<span class="built_in">String</span>]</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. required
+
+   1. 声明某个参数必须传入
+
+      <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">	required:<span class="literal">true</span>,</span><br><span class="line">   	message:[<span class="built_in">Number</span>,<span class="built_in">String</span>]</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+3. default
+
+   1. 单个类型
+
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">   	message:Number</span><br><span class="line">   	default:22</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+   2. type类型为Array或者Object的时候，default必须为一个函数
+
+      <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">	required:<span class="literal">true</span>,</span><br><span class="line">   	message:Arry,</span><br><span class="line">   	<span class="keyword">default</span>:<span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+4. validator(自定义校验)
+
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">   	message:Number</span><br><span class="line">   	default:22  // 需要给定default值</span><br><span class="line">   	validator:(value)=&gt;&#123;</span><br><span class="line">   		return value &gt; 1&amp;&amp;value &lt; 100</span><br><span class="line">   	&#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></code></pre><ol start="4">
+<li><p>给组件绑定原生事件</p>
+<ol>
+<li>通过.native属性来绑定原生事件</li>
+</ol>
+</li>
+<li><p>非父子组件间的传值</p>
+<ol>
+<li>通过vuex(eventBoss)</li>
+</ol>
+</li>
+<li><p>在vue中使用插槽</p>
+<ol>
+<li><p>插槽就是Vue实现的一套内容分发API,<slot></slot></p>
+</li>
+<li><p>指定分发内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;children &gt;</span><br><span class="line">	&lt;p slot = &apos;header&apos;&gt;&lt;/p&gt;</span><br><span class="line">&lt;/children&gt;</span><br><span class="line">// 子组件</span><br><span class="line">Vuv.Component(&apos;children&apos;,&#123;</span><br><span class="line">	template:`&lt;div&gt;</span><br><span class="line">		&lt;slot name=&apos;header&apos;&gt;&lt;/slot&gt;</span><br><span class="line">	&lt;/div&gt;`</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="7">
+<li><p>作用域插槽</p>
+<ol>
+<li>使用场景<ol>
+<li>子组件做循环</li>
+<li>子组件的dom结构由外部传递进来，或者由外部决定</li>
+</ol>
+</li>
+<li>父组件调用子组件的时候，给子组件传递了一个插槽，这个插槽是一个作用域的插槽，其必须是<code>&lt;template slot-scope=&#39;props&gt;&lt;/template&gt;&#39;</code></li>
+</ol>
+</li>
+<li><p>动态组件和v-once 指令</p>
+<ol>
+<li>组件动态切换</li>
+<li>v-once 元素组件只渲染一次，其组件以及所有子节点，都会当作静态内容并且跳过，可优化更新内容</li>
+</ol>
+</li>
+</ol>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/wangxiao.github.io/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

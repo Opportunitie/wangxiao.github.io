@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="Wang xiao">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="ES6学习之旅--Iterator、Reflect">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Hello hexo">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Hello hexo</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/wangxiao.github.io/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/wangxiao.github.io/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/wangxiao.github.io//img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">ES6学习之旅--Iterator、Reflect</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/wangxiao.github.io/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wangxiao.github.io/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Wang xiao</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-07-13</span>
+            <span class="time">19:54:14</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/wangxiao.github.io/categories/JavaScript/">JavaScript</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/wangxiao.github.io/tags/ES6学习笔记/">#ES6学习笔记</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3 id="ES6学习"><a href="#ES6学习" class="headerlink" title="ES6学习"></a>ES6学习</h3><ul>
+<li><p>iterator</p>
+<ul>
+<li><p>iterator作用</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、是为各种数据结构提供统一的、简便的访问接口；</span><br><span class="line">2、使得数据结构的成员能够按某种次序排列；</span><br><span class="line">3、ES6创造了一中新的遍历命令</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代码演示</p>
+<ul>
+<li><p>模拟next方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> it =makeIterator([<span class="string">'a'</span>,<span class="string">'b'</span>])</span><br><span class="line">it.next()   <span class="comment">// &#123;value:'a',done:false&#125;</span></span><br><span class="line">it.next()   <span class="comment">// &#123;value:'b',done:false&#125;</span></span><br><span class="line">it.next()   <span class="comment">// &#123;value:undefine,done:true&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeIterator</span>(<span class="params">array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> nextIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        next: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> nextIndex &lt; array.length?</span><br><span class="line">            &#123;<span class="attr">value</span>:array[nextIndex++],<span class="attr">done</span>:<span class="literal">false</span>&#125; :</span><br><span class="line">            &#123;<span class="attr">value</span>:<span class="literal">undefined</span>,<span class="attr">done</span>:<span class="literal">true</span>&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原生具备Iterator接口的数据结构</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Array,Map,Set,String,TypedArray</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]</span><br><span class="line"><span class="keyword">let</span> iter = arr[<span class="built_in">Symbol</span>.iterator]()</span><br><span class="line">iter.next() <span class="comment">// &#123;value:'a',done:false&#125;</span></span><br><span class="line">iter.next() <span class="comment">// &#123;value:'b',done:false&#125;</span></span><br><span class="line">iter.next() <span class="comment">// &#123;value:'c',done:false&#125;</span></span><br><span class="line">iter.next() <span class="comment">// &#123;value: undefined,done:true&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for…of</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">'red'</span>, <span class="string">'green'</span>,<span class="string">'blue'</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> v <span class="keyword">of</span> arr)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(v); <span class="comment">// red green blue </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> arr = [];</span><br><span class="line">obj[<span class="built_in">Symbol</span>.iterator] = arr[<span class="built_in">Symbol</span>.iterator].bind(arr)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> v <span class="keyword">of</span> obj)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(v) <span class="comment">// red green blue</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Reflect </p>
+<ul>
+<li><p>Reflect.apply</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">语法：<span class="built_in">Reflect</span>.apply(func, thisArg, args)</span><br><span class="line">说明：<span class="built_in">Reflect</span>.apply方法等同于<span class="built_in">Function</span>.prototype.apply</span><br><span class="line">.call(func, thisArg, args)</span><br><span class="line">代码演示</span><br><span class="line"><span class="keyword">const</span> ages = [<span class="number">11</span>, <span class="number">33</span>, <span class="number">12</span>, <span class="number">54</span>, <span class="number">18</span>, <span class="number">96</span>]</span><br><span class="line"><span class="comment">// 旧写法</span></span><br><span class="line"><span class="keyword">const</span> younges = <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, ages)</span><br><span class="line"><span class="comment">//新写法</span></span><br><span class="line"><span class="keyword">const</span> younges = <span class="built_in">Reflect</span>.apply(<span class="built_in">Math</span>.min,<span class="built_in">Math</span>,ages)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Reflect.construct</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">语法：<span class="built_in">Reflect</span>.construct(target, args)</span><br><span class="line">说明：<span class="built_in">Reflect</span>.construct方法等同于<span class="keyword">new</span> target(...args)</span><br><span class="line">代码演示：</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Greeting</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// new 的写法</span></span><br><span class="line"><span class="keyword">let</span> greet = <span class="keyword">new</span> Geeting(<span class="string">'小王'</span>)</span><br><span class="line"><span class="comment">// Reflect.construct写法</span></span><br><span class="line"><span class="keyword">let</span> instance = <span class="built_in">Reflect</span>.construct(Greeting, <span class="string">'小王'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Reflect.defineProperty</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">语法：<span class="built_in">Reflect</span>.defineProperty(target,propertyKey,attributes)</span><br><span class="line">说明：<span class="built_in">Reflect</span>.defineProperty等同于<span class="built_in">Object</span>.defineProperty</span><br><span class="line">代码演示：</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">NowTime</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    ***</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 旧写法</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(NowTime, <span class="string">'now'</span>, &#123;</span><br><span class="line">    value: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Date</span>.now()</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 新写法</span></span><br><span class="line"><span class="built_in">Reflect</span>.defineProperty(NowTime, <span class="string">'now'</span>, &#123;</span><br><span class="line">    value: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Date</span>.now()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/wangxiao.github.io/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

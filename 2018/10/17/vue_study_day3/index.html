@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="Wang xiao">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Vue学习之旅">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Hello hexo">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Hello hexo</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/wangxiao.github.io/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/wangxiao.github.io/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/wangxiao.github.io//img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Vue学习之旅</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/wangxiao.github.io/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wangxiao.github.io/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Wang xiao</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-10-17</span>
+            <span class="time">19:54:14</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/wangxiao.github.io/categories/Front-End/">Front End</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/wangxiao.github.io/tags/Vue学习笔记/">#Vue学习笔记</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3 id="vue-study-day3"><a href="#vue-study-day3" class="headerlink" title="vue_study_day3"></a>vue_study_day3</h3><h4 id="vue全家桶"><a href="#vue全家桶" class="headerlink" title="vue全家桶"></a>vue全家桶</h4><ol>
+<li><p>在vue中使用less</p>
+<ol>
+<li>安装less的依赖<code>npm i less less-loader --save-dev</code></li>
+<li>配置webpack.base.conf.js的rules里面添加配置</li>
+<li>最后在代码的style标签中加上lang=’less’</li>
+</ol>
+</li>
+<li><p>在vue中使用sass</p>
+<ol>
+<li>安装sass的依赖 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install node-sass --save-dev</span><br><span class="line">   npm install sass-loader --save-dev</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>2. [vue项目中使用sass-loader](https://blog.csdn.net/web_youth/article/details/80052969)
+3. 配置webpack.base.conf.js的rules里面添加配置
+4. 最后在代码的style标签中加上lang=&apos;sass&apos;</code></pre><ol start="3">
+<li><p>Vue_Router</p>
+<ol>
+<li><p>Vue Router是Vue.js官方的路由管理器</p>
+<p>将组件(Component)映射到路由（Routes），告诉Vue Router在哪里渲染他们</p>
+<ol start="2">
+<li>路由<ol>
+<li>在实际开发中，App.vue只是作为为一个存放组件的容器</li>
+</ol>
+</li>
+<li>用<router-link>映射路由(@指向src目录)</router-link></li>
+</ol>
+</li>
+<li><p>编程式导航</p>
+<ol>
+<li><p><code>this.$route.push(&#39;/app&#39;)</code></p>
+</li>
+<li><p>this.$route.push{path: ‘/app’})</p>
+</li>
+<li><p>a</p>
+</li>
+<li><p>获取路由参数：this.$route.params.id</p>
+</li>
+<li><p>vue路由传参，params和query</p>
+<pre><code>1. query传参（路由里显示参数）</code></pre><ol start="2">
+<li>const { msg } = this.$route.query（从路由里面拿数据）<ol start="3">
+<li>params（路由里不显示参数，会缓存参数，刷新消失）</li>
+</ol>
+</li>
+<li>const { msg } = this.$route.params 刷新页面，数据获取不到（缓存）</li>
+</ol>
+</li>
+<li><p>destroyed(生命周期)也会删除缓存数据</p>
+<ol start="6">
+<li>this.$route.back // 返回上次页面</li>
+<li><keep-alive>保存当前的状态（忽略钩子函数）(提供两个钩子函数activeted、deactivated)<ol>
+<li>activated</li>
+<li>deactivated</li>
+</ol>
+</keep-alive></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>vue Axios</p>
+<ol>
+<li>安装<code>npm i axios --save</code></li>
+<li>使用import axios from ‘axios’</li>
+<li>特性    </li>
+<li>发送XMLHttpRequests请求</li>
+<li>在node.js中发送h’t’t’p请求</li>
+<li>支持PromiseAPI</li>
+<li>拦截请求和响应</li>
+<li>取消请求</li>
+<li>自动转化JSON数据</li>
+<li>客户端支持保护安全，免受CSRF/XSRF攻击</li>
+</ol>
+</li>
+<li><p>Vuex（状态管理）</p>
+<ol>
+<li><p>解决各个组件数据共享问题</p>
+</li>
+<li><p>安装<code>npm i vuex --save</code></p>
+</li>
+<li><p>使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 新建以哥store文件夹，并在文件夹下新建store.js文件，引入vue和vuex</span><br><span class="line">import  Vuex from  &apos;vuex&apos;`</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">// 在main.js中引入新建的vuex文件</span><br><span class="line">import store from &apos;./store/store&apos;</span><br><span class="line">// 实例化Vue对象时加入store对象</span><br><span class="line">new Vue(&#123;</span><br><span class="line">	el:&apos;#app&apos;</span><br><span class="line">	router,</span><br><span class="line">	store,</span><br><span class="line">	components:&#123;App&#125;,</span><br><span class="line">	template:&apos;&lt;App /&gt;&apos;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="4">
+<li><p>State、Getter、Mutation、Action、Module</p>
+</li>
+<li><p>module命名空间</p>
+</li>
+<li><p>开发注意事项</p>
+<ol>
+<li>使用模块</li>
+<li>namespace:true</li>
+<li>使用辅助函数</li>
+</ol>
+</li>
+</ol>
+<h4 id="Hippius-ui（不支持ts）"><a href="#Hippius-ui（不支持ts）" class="headerlink" title="Hippius-ui（不支持ts）"></a>Hippius-ui（不支持ts）</h4><ol>
+<li><p>HippiusUI</p>
+<ol>
+<li>团队自主开发组件库</li>
+<li>支持全局和局部引用</li>
+<li>内部使用viewport适配</li>
+<li>多类型组件</li>
+<li>不断扩张</li>
+<li>官网<a href="http://wechat.hand-china.com/hippius-ui" target="_blank" rel="noopener">http://wechat.hand-china.com/hippius-ui</a></li>
+</ol>
+</li>
+<li><p>使用</p>
+<ol>
+<li>安装</li>
+<li>配置</li>
+<li>引用组件</li>
+</ol>
+</li>
+<li><p>mock.js</p>
+</li>
+<li><p>全局环境变量必须用vue_app开始命名，譬如：vue_app_my_component</p>
+</li>
+<li><p>文件和文件夹名称：小写字母加中划线</p>
+</li>
+</ol>
+<h4 id="项目问题"><a href="#项目问题" class="headerlink" title="项目问题"></a>项目问题</h4><ol>
+<li>组件名称、class、方法名称、最好使用字母加中划线来拼写button-style</li>
+<li>代码冗余、需要优化</li>
+<li>函数注释</li>
+<li>点击事件@keyup=’event’(按钮触发事件)</li>
+<li>id可以用uudi()产生唯一id</li>
+</ol>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/wangxiao.github.io/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

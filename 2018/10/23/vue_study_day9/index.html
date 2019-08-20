@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="Wang xiao">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Vue学习之旅">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Hello hexo">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Hello hexo</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/wangxiao.github.io/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/wangxiao.github.io/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/wangxiao.github.io//img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Vue学习之旅</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/wangxiao.github.io/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wangxiao.github.io/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Wang xiao</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-10-23</span>
+            <span class="time">19:54:14</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/wangxiao.github.io/categories/Front-End/">Front End</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/wangxiao.github.io/tags/Vue学习笔记/">#Vue学习笔记</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3 id="vue-study-day9"><a href="#vue-study-day9" class="headerlink" title="vue_study_day9"></a>vue_study_day9</h3><h4 id="重温vue-js文档——props"><a href="#重温vue-js文档——props" class="headerlink" title="重温vue.js文档——props"></a>重温vue.js文档——props</h4><h4 id="prop的大小写"><a href="#prop的大小写" class="headerlink" title="prop的大小写"></a>prop的大小写</h4><ul>
+<li><p>HTML中的特性名对大小写不敏感，浏览器编译时会把大写字符解释为小写字母，在使用Dom中的模板时，camelCade的prop名需要使用kebab-case命名,但是如果使用字符串模板，就不会有这个限制（有空去查下原因）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;blog-post&apos;, &#123;</span><br><span class="line">  // 在 JavaScript 中是 camelCase 的</span><br><span class="line">  props: [&apos;postTitle&apos;],</span><br><span class="line">  template: &apos;&lt;h3&gt;&#123;&#123; postTitle &#125;&#125;&lt;/h3&gt;&apos;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 在 HTML 中是 kebab-case 的 --&gt;</span><br><span class="line">&lt;blog-post post-title=&quot;hello!&quot;&gt;&lt;/blog-post&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="prop类型"><a href="#prop类型" class="headerlink" title="prop类型"></a>prop类型</h4><ul>
+<li><p>列出prop属性的名称和prop各自的名称和类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  title: String,</span><br><span class="line">  likes: Number,</span><br><span class="line">  isPublished: Boolean,</span><br><span class="line">  commentIds: Array,</span><br><span class="line">  author: Object,</span><br><span class="line">  callback: Function,</span><br><span class="line">  contactsPromise: Promise  // or any other constructor(或者其他的构造函数)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="传入静态或者动态prop"><a href="#传入静态或者动态prop" class="headerlink" title="传入静态或者动态prop"></a>传入静态或者动态prop</h4><ul>
+<li><p>静态prop</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;blog-post title=&quot;My journey with Vue&quot;&gt;&lt;/blog-post&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>动态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 动态赋予一个变量的值 --&gt;</span><br><span class="line">&lt;blog-post v-bind:title=&quot;post.title&quot;&gt;&lt;/blog-post&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 动态赋予一个复杂表达式的值 --&gt;</span><br><span class="line">&lt;blog-post</span><br><span class="line">  v-bind:title=&quot;post.title + &apos; by &apos; + post.author.name&quot;</span><br><span class="line">&gt;&lt;/blog-post&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="传入数字"><a href="#传入数字" class="headerlink" title="传入数字"></a>传入数字</h4><ul>
+<li><p>说明：传入数字依然需要用v-bind，不然会将数字转化成字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 即便 `42` 是静态的，我们仍然需要 `v-bind` 来告诉 Vue --&gt;</span><br><span class="line">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。--&gt;</span><br><span class="line">&lt;blog-post v-bind:likes=&quot;42&quot;&gt;&lt;/blog-post&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 用一个变量进行动态赋值。--&gt;</span><br><span class="line">&lt;blog-post v-bind:likes=&quot;post.likes&quot;&gt;&lt;/blog-post&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="传入布尔值"><a href="#传入布尔值" class="headerlink" title="传入布尔值"></a>传入布尔值</h4><ul>
+<li><p>传入布尔值依然需要用v-bind，不然会将数字转化成字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 包含该 prop 没有值的情况在内，都意味着 `true`。--&gt;</span><br><span class="line">&lt;blog-post is-published&gt;&lt;/blog-post&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 即便 `false` 是静态的，我们仍然需要 `v-bind` 来告诉 Vue --&gt;</span><br><span class="line">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。--&gt;</span><br><span class="line">&lt;blog-post v-bind:is-published=&quot;false&quot;&gt;&lt;/blog-post&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 用一个变量进行动态赋值。--&gt;</span><br><span class="line">&lt;blog-post v-bind:is-published=&quot;post.isPublished&quot;&gt;&lt;/blog-post&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="传入一个对象"><a href="#传入一个对象" class="headerlink" title="传入一个对象"></a>传入一个对象</h4><ul>
+<li><p>传入对象依然需要用v-bind，不然会将数字转化成字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 即便对象是静态的，我们仍然需要 `v-bind` 来告诉 Vue --&gt;</span><br><span class="line">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。--&gt;</span><br><span class="line">&lt;blog-post</span><br><span class="line">  v-bind:author=&quot;&#123;</span><br><span class="line">    name: &apos;Veronica&apos;,</span><br><span class="line">    company: &apos;Veridian Dynamics&apos;</span><br><span class="line">  &#125;&quot;</span><br><span class="line">&gt;&lt;/blog-post&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 用一个变量进行动态赋值。--&gt;</span><br><span class="line">&lt;blog-post v-bind:author=&quot;post.author&quot;&gt;&lt;/blog-post&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="传入一个对象的所有属性"><a href="#传入一个对象的所有属性" class="headerlink" title="传入一个对象的所有属性"></a>传入一个对象的所有属性</h4><ul>
+<li><p>如果你想要将一个对象的所有属性都作为 prop 传入，你可以使用不带参数的 <code>v-bind</code> (取代 <code>v-bind:prop-name</code>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;blog-post v-bind=&quot;post&quot;&gt;&lt;/blog-post&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            post: &#123;</span><br><span class="line">                id: 1,</span><br><span class="line">  				title: &apos;My Journey with Vue&apos;</span><br><span class="line">			&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h4><ul>
+<li><p>父级 prop 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外改变父级组件的状态，从而导致你的应用的数据流向难以理解。另外，每次父级组件发生更新时，子组件中所有的 prop 都将会刷新为最新的值。（不因该在子组件内部改变prop,如果这样，Vue会在浏览器控制台中发出警告）</p>
+<ul>
+<li><p>prop用来传递初始值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">props: [&apos;initialCounter&apos;],</span><br><span class="line"></span><br><span class="line">data: function () &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    counter: this.initialCounter // 直接用</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>prop以一种原始的值传入且需要进行转换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">props: [&apos;size&apos;],</span><br><span class="line">// 使用计算属性转换</span><br><span class="line">computed: &#123;</span><br><span class="line">  normalizedSize: function () &#123;</span><br><span class="line">    return this.size.trim().toLowerCase()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意在 JavaScript 中对象和数组是通过引用传入的，所以对于一个数组或对象类型的 prop 来说，在子组件中改变这个对象或数组本身将会影响到父组件的状态。</p>
+</li>
+</ul>
+<h4 id="prop验证"><a href="#prop验证" class="headerlink" title="prop验证"></a>prop验证</h4><ul>
+<li><p>注意： prop 会在一个组件实例创建<strong>之前</strong>进行验证，所以实例的属性 (如 <code>data</code>、<code>computed</code> 等) 在 <code>default</code> 或 <code>validator</code> 函数中是不可用的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;my-component&apos;, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    // 基础的类型检查 (`null` 和 `undefined` 会通过任何类型验证)</span><br><span class="line">    propA: Number,</span><br><span class="line">    // 多个可能的类型</span><br><span class="line">    propB: [String, Number],</span><br><span class="line">    // 必填的字符串</span><br><span class="line">    propC: &#123;</span><br><span class="line">      type: String,</span><br><span class="line">      required: true</span><br><span class="line">    &#125;,</span><br><span class="line">    // 带有默认值的数字</span><br><span class="line">    propD: &#123;</span><br><span class="line">      type: Number,</span><br><span class="line">      default: 100</span><br><span class="line">    &#125;,</span><br><span class="line">    // 带有默认值的对象</span><br><span class="line">    propE: &#123;</span><br><span class="line">      type: Object,</span><br><span class="line">      // 对象或数组默认值必须从一个工厂函数获取</span><br><span class="line">      default: function () &#123;</span><br><span class="line">        return &#123; message: &apos;hello&apos; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    // 自定义验证函数</span><br><span class="line">    propF: &#123;</span><br><span class="line">      validator: function (value) &#123;</span><br><span class="line">        // 这个值必须匹配下列字符串中的一个</span><br><span class="line">        return [&apos;success&apos;, &apos;warning&apos;, &apos;danger&apos;].indexOf(value) !== -1</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="替换-合并已有的特性"><a href="#替换-合并已有的特性" class="headerlink" title="替换/合并已有的特性"></a>替换/合并已有的特性</h4><ul>
+<li><code>class</code> 和 <code>style</code> 会将两边的值会被合并起来 ，而<code>type=&quot;text&quot;</code> 就会替换掉 <code>原有的type=&quot;date&quot;</code></li>
+</ul>
+<h4 id="禁用特性继承"><a href="#禁用特性继承" class="headerlink" title="禁用特性继承"></a>禁用特性继承</h4><ul>
+<li><p>如果你不希望组件的根元素继承特性，你可以在组件的选项中设置 <code>inheritAttrs: false</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;my-component&apos;, &#123;</span><br><span class="line">  inheritAttrs: false,</span><br><span class="line">  // ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过配合实例$attrs属性使用，该属性包含了传递给一个组件的特性名和特性值。通过inheritAttrs和$attrs，我们可以手动决定这些特性会被赋予那个元素。（撰写基础组件的时候常会用到）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;base-input&apos;, &#123;</span><br><span class="line">  inheritAttrs: false,</span><br><span class="line">  props: [&apos;label&apos;, &apos;value&apos;],</span><br><span class="line">  template: `</span><br><span class="line">    &lt;label&gt;</span><br><span class="line">      &#123;&#123; label &#125;&#125;</span><br><span class="line">      &lt;input</span><br><span class="line">        v-bind=&quot;$attrs&quot;</span><br><span class="line">        v-bind:value=&quot;value&quot;</span><br><span class="line">        v-on:input=&quot;$emit(&apos;input&apos;, $event.target.value)&quot;</span><br><span class="line">      &gt;</span><br><span class="line">    &lt;/label&gt;</span><br><span class="line">  `</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意 <code>inheritAttrs: false</code> 选项不会影响 <code>style</code> 和 <code>class</code>的绑定。</p>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/wangxiao.github.io/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+

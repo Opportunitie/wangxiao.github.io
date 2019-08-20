@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="Wang xiao">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Vue学习之旅">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Hello hexo">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Hello hexo</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/wangxiao.github.io/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/wangxiao.github.io/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/wangxiao.github.io//img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Vue学习之旅</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/wangxiao.github.io/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wangxiao.github.io/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Wang xiao</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-10-21</span>
+            <span class="time">19:54:14</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/wangxiao.github.io/categories/Front-End/">Front End</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/wangxiao.github.io/tags/Vue学习笔记/">#Vue学习笔记</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3 id="vue-study-day7"><a href="#vue-study-day7" class="headerlink" title="vue_study_day7"></a>vue_study_day7</h3><h4 id="进入-离开-amp-列表过度"><a href="#进入-离开-amp-列表过度" class="headerlink" title="进入/离开&amp;列表过度"></a>进入/离开&amp;列表过度</h4><p>说明：Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。<br>包括以下工具：</p>
+<ul>
+<li>在 CSS 过渡和动画中自动应用 class</li>
+<li>可以配合使用第三方 CSS 动画库，如 Animate.css</li>
+<li>在过渡钩子函数中使用 JavaScript 直接操作 DOM</li>
+<li>可以配合使用第三方 JavaScript 动画库，如 Velocity.js</li>
+</ul>
+<p>在这里，我们只会讲到进入、离开和列表的过渡，你也可以看下一节的 <a href="https://cn.vuejs.org/v2/guide/transitioning-state.html" target="_blank" rel="noopener">管理过渡状态</a>。</p>
+<h4 id="单元素-组件的过度"><a href="#单元素-组件的过度" class="headerlink" title="单元素/组件的过度"></a>单元素/组件的过度</h4><p>Vue 提供了 <code>transition</code> 的封装组件，在下列情形中，可以给任何元素和组件添加进入/离开过渡</p>
+<ul>
+<li><p>条件渲染 (使用 <code>v-if</code>)</p>
+</li>
+<li><p>条件展示 (使用 <code>v-show</code>)</p>
+</li>
+<li><p>动态组件</p>
+</li>
+<li><p>组件根节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;button @click=&apos;show=!show&apos;&gt;</span><br><span class="line">        toggle</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">	&lt;transition&gt;</span><br><span class="line">    	&lt;p v-if=&apos;show&apos;&gt;</span><br><span class="line">            渐变</span><br><span class="line">    	&lt;/p&gt;</span><br><span class="line">    &lt;/transition&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            show:true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">    .fade-enter-active, .fade-leave-active &#123;</span><br><span class="line">      transition: opacity .5s;</span><br><span class="line">    &#125;</span><br><span class="line">    .fade-enter, .fade-leave-to&#123;</span><br><span class="line">      opacity: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="过渡的类名"><a href="#过渡的类名" class="headerlink" title="过渡的类名"></a>过渡的类名</h4><p>在进入/离开的过渡中，会有 6 个 class 切换。</p>
+<ol>
+<li><p><code>v-enter</code>：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</p>
+</li>
+<li><p><code>v-enter-active</code>：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</p>
+</li>
+<li><p><code>v-enter-to</code>: <strong>2.1.8版及以上</strong> 定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 <code>v-enter</code> 被移除)，在过渡/动画完成之后移除。</p>
+</li>
+<li><p><code>v-leave</code>: 定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。</p>
+</li>
+<li><p><code>v-leave-active</code>：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</p>
+</li>
+<li><p><code>v-leave-to</code>: <strong>2.1.8版及以上</strong> 定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 <code>v-leave</code> 被删除)，在过渡/动画完成之后移除。</p>
+<p><img src="https://cn.vuejs.org/images/transition.png" alt="过渡图解">              对  于这些在过渡中切换的类名来说，如果你使用一个没有名字的 <code>&lt;transition&gt;</code>，则 <code>v-</code> 是这些类名的默认前缀。如果你使用了 <code>&lt;transition name=&quot;my-transition&quot;&gt;</code>，那么 <code>v-enter</code> 会替换为 <code>my-transition-enter</code>。</p>
+<p>注意：<code>v-enter-active</code> 和 <code>v-leave-active</code> 可以控制进入/离开过渡的不同的缓和曲线。</p>
+</li>
+</ol>
+<h4 id="过渡可以使用CSS过渡或者CSS动画"><a href="#过渡可以使用CSS过渡或者CSS动画" class="headerlink" title="过渡可以使用CSS过渡或者CSS动画"></a>过渡可以使用CSS过渡或者CSS动画</h4><ol>
+<li><p>CSS过渡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;button @click=&apos;show=!show&apos;&gt;</span><br><span class="line">        toggle</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">	&lt;transition name=&apos;my-transition&apos;&gt;</span><br><span class="line">    	&lt;p v-if=&apos;show&apos;&gt;</span><br><span class="line">            渐变</span><br><span class="line">    	&lt;/p&gt;</span><br><span class="line">    &lt;/transition&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            show:true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">    .my-transition-enter-active, .my-transition-leave-active &#123;</span><br><span class="line">      transition: opacity .5s;</span><br><span class="line">    &#125;</span><br><span class="line">    .my-transition-on-enter, .my-transition-leave-to&#123;</span><br><span class="line">      opacity: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CSS动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;button @click=&apos;show=!show&apos;&gt;</span><br><span class="line">        toggle</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">	&lt;transition name=&apos;my-animition&apos;&gt;</span><br><span class="line">    	&lt;p v-if=&apos;show&apos;&gt;</span><br><span class="line">            渐变</span><br><span class="line">    	&lt;/p&gt;</span><br><span class="line">    &lt;/transition&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            show:true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.my-animition-enter-active &#123;</span><br><span class="line">  animation: bounce-in .5s;</span><br><span class="line">&#125;</span><br><span class="line">.my-animition-leave-active &#123;</span><br><span class="line">  animation: bounce-in .5s reverse;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes bounce-in &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    transform: scale(0);</span><br><span class="line">  &#125;</span><br><span class="line">  50% &#123;</span><br><span class="line">    transform: scale(1.5);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    transform: scale(1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h4 id="自定义过度类名"><a href="#自定义过度类名" class="headerlink" title="自定义过度类名"></a>自定义过度类名</h4><ul>
+<li><p><code>enter-class</code></p>
+</li>
+<li><p><code>enter-active-class</code>  （主要用的）</p>
+</li>
+<li><p><code>enter-to-class</code> (2.1.8+)</p>
+</li>
+<li><p><code>leave-class</code></p>
+</li>
+<li><p><code>leave-active-class</code>    （主要用的）</p>
+</li>
+<li><p><code>leave-to-class</code> (2.1.8+)</p>
+</li>
+<li><p><a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener">动画效果</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;button @click=&apos;show=!show&apos;&gt;</span><br><span class="line">        toggle</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">	&lt;transition </span><br><span class="line">       name=&apos;my-animition&apos;</span><br><span class="line">       enter-active-class=&quot;animated tada&quot;</span><br><span class="line">       leave-active-class=&quot;animated bounceOutRight&quot;</span><br><span class="line">     &gt;</span><br><span class="line">    	&lt;p v-if=&apos;show&apos;&gt;</span><br><span class="line">            渐变</span><br><span class="line">    	&lt;/p&gt;</span><br><span class="line">    &lt;/transition&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">// 在main.js中引入</span><br><span class="line">import Vue from &apos;vue&apos;;</span><br><span class="line">import VAnimateCss from &apos;v-animate-css&apos;; // (npm i v-animate-css --save)</span><br><span class="line">Vue.use(VAnimateCss);</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">	data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            show:true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="显性持续的过渡时间"><a href="#显性持续的过渡时间" class="headerlink" title="显性持续的过渡时间"></a>显性持续的过渡时间</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;transition :duration=&quot;1000&quot;&gt;</span><br><span class="line">	// content</span><br><span class="line">&lt;/transition&gt;</span><br><span class="line">&lt;transition :duration=&quot;&#123; enter: 500, leave: 800 &#125;&quot;&gt;</span><br><span class="line">	// content</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="JavaScript钩子"><a href="#JavaScript钩子" class="headerlink" title="JavaScript钩子"></a>JavaScript钩子</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 钩子函数可以结合 CSS transitions/animations 使用，也可以单独使用。--&gt;</span><br><span class="line">&lt;transition</span><br><span class="line">  v-on:before-enter=&quot;beforeEnter&quot;</span><br><span class="line">  v-on:enter=&quot;enter&quot;</span><br><span class="line">  v-on:after-enter=&quot;afterEnter&quot;</span><br><span class="line">  v-on:enter-cancelled=&quot;enterCancelled&quot;</span><br><span class="line"></span><br><span class="line">  v-on:before-leave=&quot;beforeLeave&quot;</span><br><span class="line">  v-on:leave=&quot;leave&quot;</span><br><span class="line">  v-on:after-leave=&quot;afterLeave&quot;</span><br><span class="line">  v-on:leave-cancelled=&quot;leaveCancelled&quot;</span><br><span class="line">&gt;</span><br><span class="line">  &lt;!-- ... --&gt;</span><br><span class="line">&lt;/transition&gt;</span><br><span class="line">//当只用 JavaScript 过渡的时候，在 enter 和 leave 中必须使用 done 进行回调。否则，它们将被同步调用，过渡会立即完成。</span><br><span class="line"></span><br><span class="line">//推荐对于仅使用 JavaScript 过渡的元素添加 v-bind:css=&quot;false&quot;，Vue 会跳过 CSS 的检测。这也可以避免过渡过程中 CSS 的影响。</span><br><span class="line">methods: &#123;</span><br><span class="line">  // --------</span><br><span class="line">  // 进入中</span><br><span class="line">  // --------</span><br><span class="line"></span><br><span class="line">  beforeEnter: function (el) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;,</span><br><span class="line">  // 当与 CSS 结合使用时</span><br><span class="line">  // 回调函数 done 是可选的</span><br><span class="line">  enter: function (el, done) &#123;</span><br><span class="line">    // ...</span><br><span class="line">    done()</span><br><span class="line">  &#125;,</span><br><span class="line">  afterEnter: function (el) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;,</span><br><span class="line">  enterCancelled: function (el) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  // --------</span><br><span class="line">  // 离开时</span><br><span class="line">  // --------</span><br><span class="line"></span><br><span class="line">  beforeLeave: function (el) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;,</span><br><span class="line">  // 当与 CSS 结合使用时</span><br><span class="line">  // 回调函数 done 是可选的</span><br><span class="line">  leave: function (el, done) &#123;</span><br><span class="line">    // ...</span><br><span class="line">    done()</span><br><span class="line">  &#125;,</span><br><span class="line">  afterLeave: function (el) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;,</span><br><span class="line">  // leaveCancelled 只用于 v-show 中</span><br><span class="line">  leaveCancelled: function (el) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="过渡模式"><a href="#过渡模式" class="headerlink" title="过渡模式"></a>过渡模式</h4><ol>
+<li><code>in-out</code>：新元素先进行过渡，完成之后当前元素过渡离开。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;transition name=&quot;fade&quot; mode=&quot;in-out&quot;&gt;</span><br><span class="line">  &lt;button&gt;</span><br><span class="line">     新 -&gt; 当前</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><code>out-in</code>：当前元素先进行过渡，完成之后新元素过渡进入。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;transition name=&quot;fade&quot; mode=&quot;out-in&quot;&gt;</span><br><span class="line">  &lt;button&gt;</span><br><span class="line">    当前 -&gt; 新  </span><br><span class="line">   &lt;/button&gt;</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="列表过渡"><a href="#列表过渡" class="headerlink" title="列表过渡"></a>列表过渡</h4><p>说明：同时渲染整个列表，比如使用 <code>v-for</code> 。在这种场景中，使用 <code>&lt;transition-group&gt;</code> 组件。在我们深入例子之前，先了解关于这个组件的几个特点：</p>
+<ul>
+<li>不同于 <code>&lt;transition&gt;</code>，它会以一个真实元素呈现：默认为一个 <code>&lt;span&gt;</code>。你也可以通过 <code>tag</code>特性更换为其他元素。</li>
+<li><a href="https://cn.vuejs.org/v2/guide/transitions.html#过渡模式" target="_blank" rel="noopener">过渡模式</a>不可用，因为我们不再相互切换特有的元素。</li>
+<li>内部元素 <strong>总是需要</strong> 提供唯一的 <code>key</code> 属性值。</li>
+<li>CSS 过渡的类将会应用在内部的元素中，而不是这个组/容器本身。</li>
+<li><code>&lt;transition-group&gt;</code> 组件还有一个特殊之处。不仅可以进入和离开动画，还可以改变定位。要使用这个新功能只需了解新增的 <strong>v-move 特性</strong>，它会在元素的改变定位的过程中应用。像之前的类名一样，可以通过 <code>name</code> 属性来自定义前缀，也可以通过 <code>move-class</code> 属性手动设置。</li>
+</ul>
+<h4 id="将transition和animate-css结合"><a href="#将transition和animate-css结合" class="headerlink" title="将transition和animate.css结合"></a>将transition和animate.css结合</h4><ol>
+<li><p>路由跳转动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 方式一 --&gt;</span><br><span class="line">    &lt;transition</span><br><span class="line">      mode=&quot;out-in&quot;</span><br><span class="line">      enter-active-class=&quot;rotateInUpLeft&quot;</span><br><span class="line">      leave-active-class=&quot;rotateOutUpLeft&quot;</span><br><span class="line">    &gt;</span><br><span class="line">      &lt;router-view class=&quot;animated&quot; /&gt;</span><br><span class="line">    &lt;/transition&gt;</span><br><span class="line">    &lt;!-- 方式二 --&gt;</span><br><span class="line">    &lt;!-- &lt;transition mode=&quot;out-in&quot; enter-active-class=&quot;animated fadeInRight&quot; leave-active-class=&quot;animated fadeOutLeft&quot;&gt;</span><br><span class="line">      &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/transition&gt; --&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列表动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;transition-group</span><br><span class="line">        name=&apos;list&apos;</span><br><span class="line">        enter-active-class=&quot;animated bounceInDown&quot;</span><br><span class="line">        leave-active-class=&quot;animated lightSpeedOut&quot;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;div</span><br><span class="line">          v-for=&quot;(item) in data&quot;</span><br><span class="line">          :key=&quot;item.id&quot;</span><br><span class="line">          class=&quot;content-style on-hover&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;div&gt;</span><br><span class="line">            &lt;input</span><br><span class="line">              type=&quot;checkbox&quot;</span><br><span class="line">              :checked=&quot;item.checkBoxstatus&quot;</span><br><span class="line">              @click=&quot;changeCheckBoxStatus(item.id)&quot;</span><br><span class="line">            /&gt;</span><br><span class="line">            &lt;span&gt;&#123;&#123;item.value&#125;&#125;&lt;/span&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">          &lt;div&gt;</span><br><span class="line">            &lt;button</span><br><span class="line">              class=&quot;button-style&quot;</span><br><span class="line">              @click=&quot;changeStatus(item.id)&quot;</span><br><span class="line">            &gt;&#123;&#123;item.status?&apos;标记未完成&apos;:&apos;标记完成&apos;&#125;&#125;&lt;/button&gt;</span><br><span class="line">            &lt;button</span><br><span class="line">              class=&quot;butond-delStyle&quot;</span><br><span class="line">              @click=&quot;del(item.id)&quot;</span><br><span class="line">            &gt;删除&lt;/button&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/transition-group&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/wangxiao.github.io/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
