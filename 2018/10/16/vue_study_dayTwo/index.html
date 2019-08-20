@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2018-10-16</span>
-            <span class="time">19:54:14</span>
+            <span class="time">20:09:04</span>
           </span>
           
           <!--  Categories  -->
@@ -165,36 +165,39 @@
 </li>
 <li><p>接受多种数据类型(Stirng、Number、Boolean、Function、Object、Array、Symbol)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">     	message:[<span class="built_in">Number</span>,<span class="built_in">String</span>]</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>required</p>
+<ol>
+<li><p>声明某个参数必须传入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">	required:<span class="literal">true</span>,</span><br><span class="line">   	message:[<span class="built_in">Number</span>,<span class="built_in">String</span>]</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>default</p>
+<ol>
+<li>单个类型</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">   	message:Number</span><br><span class="line">   	default:22</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>type类型为Array或者Object的时候，default必须为一个函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">	required:<span class="literal">true</span>,</span><br><span class="line">   	message:Arry,</span><br><span class="line">   	<span class="keyword">default</span>:<span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>validator(自定义校验)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">   	message:Number</span><br><span class="line">   	default:22  // 需要给定default值</span><br><span class="line">   	validator:(value)=&gt;&#123;</span><br><span class="line">   		return value &gt; 1&amp;&amp;value &lt; 100</span><br><span class="line">   	&#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
 
 
 </li>
 </ol>
 </li>
 </ol>
-</li>
-</ol>
-<pre><code>2. required
-
-   1. 声明某个参数必须传入
-
-      <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">	required:<span class="literal">true</span>,</span><br><span class="line">   	message:[<span class="built_in">Number</span>,<span class="built_in">String</span>]</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-3. default
-
-   1. 单个类型
-
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">   	message:Number</span><br><span class="line">   	default:22</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-   2. type类型为Array或者Object的时候，default必须为一个函数
-
-      <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">	required:<span class="literal">true</span>,</span><br><span class="line">   	message:Arry,</span><br><span class="line">   	<span class="keyword">default</span>:<span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-4. validator(自定义校验)
-
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;</span><br><span class="line">   	message:Number</span><br><span class="line">   	default:22  // 需要给定default值</span><br><span class="line">   	validator:(value)=&gt;&#123;</span><br><span class="line">   		return value &gt; 1&amp;&amp;value &lt; 100</span><br><span class="line">   	&#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></code></pre><ol start="4">
+<ol start="4">
 <li><p>给组件绑定原生事件</p>
 <ol>
 <li>通过.native属性来绑定原生事件</li>

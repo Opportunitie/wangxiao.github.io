@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content>
+  <meta name="author" content="Wang xiao">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Vue学习之旅">
+  <meta property="og:description" content>
+  <meta property="og:site_name" content="Hello hexo">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="http://yoursite.com">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>Hello hexo</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/wangxiao.github.io/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/wangxiao.github.io/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/wangxiao.github.io//img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Vue学习之旅</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/wangxiao.github.io/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/wangxiao.github.io/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/<your-github-username>">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:<your-email-address>">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By Wang xiao</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-10-15</span>
+            <span class="time">20:09:05</span>
+          </span>
+          
+          <!--  Categories  -->
+            <span class="categories info">Under 
+
+<a href="/wangxiao.github.io/categories/Front-End/">Front End</a>
+</span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/wangxiao.github.io/tags/Vue学习笔记/">#Vue学习笔记</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h3 id="vue-study"><a href="#vue-study" class="headerlink" title="vue-study"></a>vue-study</h3><ul>
+<li><p>vue 优点</p>
+<ol>
+<li>体积小，</li>
+<li>扩展性好</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>社区不大</li>
+<li>功能仅限于view层</li>
+</ol>
+</li>
+<li><p>vue.js</p>
+<ol>
+<li>vue.js聚焦在MVVM模式的ViewModel层通过双向数据绑定连接视图和模型</li>
+<li>模型图</li>
+</ol>
+</li>
+<li><p>工程目录结构</p>
+</li>
+<li><p>vue语法</p>
+<ol>
+<li><p>插值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 文本：&#123;&#123;&#125;&#125;</span><br><span class="line"><span class="number">2.</span> html: v-html</span><br><span class="line"><span class="number">3.</span> html属性： v-bind</span><br><span class="line"><span class="number">4.</span> 表达式：&#123;&#123;flag?Yes:No&#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>条件语句</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> v-<span class="keyword">if</span> ,v-<span class="keyword">else</span>,v-<span class="keyword">else</span>-<span class="keyword">if</span>(v-<span class="keyword">else</span>,v-<span class="keyword">else</span>-<span class="keyword">if</span>必须跟在v-<span class="keyword">if</span>或者v-<span class="keyword">else</span>-<span class="keyword">if</span>之后)</span><br><span class="line"><span class="number">2.</span> v-show（只是改变display 的值，结点依然在Dom中）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>循环语句</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> v-<span class="keyword">for</span>(使用v-<span class="keyword">for</span>需要为每一项添加一个唯一的key)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 语法：v-on:click=<span class="string">"表达式或者方法名称"</span>   或者@click = <span class="string">"表达式或者方法名称"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>样式绑定</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="class"><span class="keyword">class</span>属性绑定</span></span><br><span class="line">   1. v-bind:class = &#123;active：isActive&#125;对象绑定(单个或者多个)</span><br><span class="line">   <span class="number">2.</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"static"</span></span><br><span class="line">   <span class="number">3.</span> :<span class="class"><span class="keyword">class</span></span>=<span class="string">"[activeClass,errorClass]"</span>数组绑定</span><br><span class="line"><span class="number">2.</span> sytle属性绑定</span><br><span class="line">   <span class="number">1.</span>  :style=<span class="string">"&#123;active：isActive&#125;"</span>(json格式)</span><br><span class="line">   <span class="number">2.</span> :style= <span class="string">"static"</span></span><br><span class="line">   <span class="number">3.</span> :style =<span class="string">"[activeClass,errorClass]"</span>(注意向后问题，同样的样式只用前面的，忽略后面的)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>计算属性</p>
+<ol>
+<li><p>computed （处理一些复杂逻辑很有用）（是一个属性，所以使用时不需要夹（））</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123; <span class="comment">// 基于依赖缓存</span></span><br><span class="line">	reverseMessage()&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">methods:&#123;</span><br><span class="line">    reverseMessage()&#123;</span><br><span class="line">        <span class="keyword">this</span>.message1=<span class="string">"world"</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.message1.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>监听属性</p>
+<ol>
+<li><p>vue.js监听属性watch,我们可以通过watch来响应数据变化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">watch:&#123; <span class="comment">// 数据变化，会运行变量对应的函数</span></span><br><span class="line">	<span class="string">'message'</span>:<span class="function"><span class="keyword">function</span>(<span class="params">newVal,oldVal</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.message1.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">	&#125;,</span><br><span class="line">    <span class="string">'message1'</span>:&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params">newVal,oldVal</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.message1.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">		&#125;,</span><br><span class="line">        immediate:<span class="literal">true</span> <span class="comment">// 立即响应</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'message2'</span>:&#123; <span class="comment">// 对于监测对象，只是监测这个对象的引用</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params">newVal,oldVal</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.message1.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">		&#125;,</span><br><span class="line">        deep:<span class="literal">true</span> <span class="comment">// 深层监测(引用里面包含对象，使用deep才能监听得到)</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>vue.js表单输入绑定</p>
+<ol>
+<li>v-model (标签或者组件必须有value属性和input事件)<ol>
+<li><input>,<textatea>,<select>(checkbox),(redio)</select></textatea></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>vue组件</p>
+<ol>
+<li><p>组件系统让我们可以用独立可复用的小组件来构建大型应用。</p>
+</li>
+<li><p>组件命名必须用中划线,(html标签不区分大小写)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'child-componet'</span>,&#123;</span><br><span class="line">	template:<span class="string">'&lt;p&gt;自定义组件&lt;/p&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="10">
+<li><p>Vue声明周期</p>
+<ol>
+<li><img src="https://images.cnblogs.com/cnblogs_com/fly_dragon/276813/o_lifecycle-%E6%A0%87%E6%B3%A8%E7%89%88%E6%9C%AC.png?tdsourcetag=s_pcqq_aiomsg" alt="vue生周期详解图"></li>
+<li>生命周期钩子函数（beforeCreate、created、beforeMount、mounted、beforeDestroy、destroyed）</li>
+<li><a href="https://baijiahao.baidu.com/s?id=1589577005087291033&wfr=spider&for=pc" target="_blank" rel="noopener">vue声明周期详解</a></li>
+</ol>
+</li>
+<li><p>Vue作业问题总结</p>
+<ol>
+<li>使用方放不需要用this</li>
+<li>方法最好用箭头函数</li>
+</ol>
+</li>
+<li><p>学习总结</p>
+<ol>
+<li><p>方法的写法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line"><span class="comment">// 函数形式</span></span><br><span class="line">   changeColor () &#123; </span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'111'</span>)</span><br><span class="line">     <span class="keyword">this</span>.backcolor = !<span class="keyword">this</span>.backcolor</span><br><span class="line">   &#125;</span><br><span class="line">    <span class="comment">// 属性形式(匿名函数)</span></span><br><span class="line">    changeColor:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'111'</span>)</span><br><span class="line">     <span class="keyword">this</span>.backcolor = !<span class="keyword">this</span>.backcolor</span><br><span class="line">   &#125;</span><br><span class="line">     <span class="comment">// 属性形式(箭头函数)</span></span><br><span class="line">    changeColor: <span class="function"><span class="params">()</span> =&gt;</span> &#123; </span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'111'</span>)</span><br><span class="line">     <span class="keyword">this</span>.backcolor = !<span class="keyword">this</span>.backcolor</span><br><span class="line">   &#125;</span><br><span class="line">    </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法的写法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// this形式</span></span><br><span class="line">&lt;button @click=<span class="string">"this.changeColor"</span>&gt;改变颜色&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 属性形式</span></span><br><span class="line"><span class="regexp">&lt;button @click="changeColor"&gt;改变颜色&lt;/</span>button&gt;</span><br><span class="line"><span class="comment">// 函数形式</span></span><br><span class="line">&lt;button @click=<span class="string">"changeColor()"</span>&gt;改变颜色&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 函数形式(带参数)</span></span><br><span class="line"><span class="regexp">&lt;button @click="del(index)"&gt;改变颜色&lt;/</span>button&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>样式使用方法</p>
+<ol>
+<li><p>class绑定</p>
+<ol>
+<li><p>对象绑定(可与普通属性共存)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div</span><br><span class="line">  <span class="class"><span class="keyword">class</span></span>=<span class="string">"static"</span></span><br><span class="line">  v-bind:<span class="class"><span class="keyword">class</span></span>=<span class="string">"&#123; active: isActive, 'text-danger': hasError &#125;"</span></span><br><span class="line">&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">data: &#123;</span><br><span class="line">  isActive: <span class="literal">true</span>,</span><br><span class="line">  hasError: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组绑定</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:<span class="class"><span class="keyword">class</span></span>=<span class="string">"[activeClass, errorClass]"</span>&gt;&lt;/div&gt;</span><br><span class="line"><span class="comment">// 三元表达式</span></span><br><span class="line">&lt;div v-bind:<span class="class"><span class="keyword">class</span></span>=<span class="string">"[isActive ? activeClass : '', errorClass]"</span>&gt;&lt;/div&gt;</span><br><span class="line"><span class="comment">// 数组语法中可以使用对象</span></span><br><span class="line">&lt;div v-bind:<span class="class"><span class="keyword">class</span></span>=<span class="string">"[&#123; active: isActive &#125;, errorClass]"</span>&gt;&lt;/div&gt;</span><br><span class="line">data: &#123;</span><br><span class="line">  activeClass: <span class="string">'active'</span>,</span><br><span class="line">  errorClass: <span class="string">'text-danger'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>绑定内联样式</p>
+<ol>
+<li><p>对象语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:style=<span class="string">"&#123; color: activeColor, fontSize: fontSize + 'px' &#125;"</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">data: &#123;</span><br><span class="line">  activeColor: <span class="string">'red'</span>,</span><br><span class="line">  fontSize: <span class="number">30</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:style=<span class="string">"[baseStyles, overridingStyles]"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/wangxiao.github.io/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
